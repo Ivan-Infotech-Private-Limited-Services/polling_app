@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block body %}
+   <div class="container">
+      <h1>Welcome</h1>
+      {% if error %}
+         <div class="error-massage" style="color:red; font-weight:bold;"><p><strong>Error:</strong></p>{{ error }}</div>
+      {% endif %}
+      <form id="auth-form" action="{{url_for('login')}}" method="post">
+         <input 
+            type="text" 
+            name="username" 
+            placeholder="Username (alphanumeric)" 
+            class="input-field"
+            id="username"
+            pattern="[A-Za-z0-9]+"
+            title="Username must contain only letters and numbers"
+            required
+         />
+         <input 
+            type="password"
+            name="password" 
+            placeholder="password" 
+            class="input-field"
+            id="password" 
+            required
+         />
+         <input 
+            type="submit" 
+            value="Login" 
+            class="login-btn"
+         />
+      </form>
+      <p>Don't have an account? <a href="{{url_for('register')}}">Register here</a></p>
+   </div>
+{% endblock %}

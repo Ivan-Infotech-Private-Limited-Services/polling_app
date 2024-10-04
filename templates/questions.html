@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %} display {% endblock %}
+{% block body %}
+    {% if question_list %}
+        <div class="container">
+            {% if error %}
+                <div class="error-message" style="color:red; font-weight:bold;"><p><strong>Error:</strong></p>{{ error }}</div>
+           {% endif %}
+           {% for question in question_list %}
+                <div class="question-item">
+                    <p style="color: black;">{{ question.text }}</p>
+                    <p style="color: black;">{{ question.time_created.strftime("%Y-%m-%d %H:%M:%S") }}</p>
+                </div>
+                <div style="display: flex; flex-flow: row;justify-content: space-evenly;">
+                    <a href="{{ url_for('view_question', id=question['id'])}}"class="logout-btn">View</a>
+                    <a href="{{ url_for('votting', id=question['id']) }}" class="logout-btn">Vote</a>
+                </div>
+                <hr>
+            {% endfor %}
+        </div>
+  {%else %}
+       <div class="container">
+            <p>No questions found.</p>
+            <a href="{{ url_for('create_question') }}" class="logout-btn">Create a New Poll</a>
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+            <a href="{{ url_for('dashboard') }}" class="logout-btn">Back to Home</a>
+        </div>
+  {%endif %}
+{% endblock %}

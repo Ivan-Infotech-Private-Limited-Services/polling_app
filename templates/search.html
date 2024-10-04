@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}{{ search_term }}{% endblock %}
+{% block body %}
+<div class="container">
+    <h1>Search Results for: {{ search_term }}</h1>
+    {% if questions %}
+        {% for question in questions %}
+            <div class="result-item">
+                <div><h2><a href="{{ url_for('view_question', id=question.id) }}">{{ question.text }}</a></h2></div>
+                <div><p>{{ question['time_created'].strftime("%Y-%m-%d %H:%M:%S") }}</p></div>
+                <div>
+                    {%if question.creator_id == session["id"] %}
+                        <a href="{{ url_for('delete_question', id=question.id) }}" class="logout-btn">Delete</a>
+                        <a href="{{ url_for('update_question', id=question.id) }}" class="logout-btn">Update</a>
+                    {% endif %}
+                    <a href="{{ url_for('votting', id=question.id) }}" class="logout-btn">Vote</a>
+                </div>
+            </div>
+            <hr>
+       {% endfor %}
+   {% else %}
+        <p>No results found.</p>
+        <div class="no-search"></div>
+            <a href="{{ url_for('dashboard') }}" class="logout-btn">Back to Home</a>
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+            <a href="{{ url_for('create_question') }}" class="logout-btn">Create a New Poll</a>
+            <a href="{{ url_for('questions') }}" class="logout-btn">View All Polls</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

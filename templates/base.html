@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A polling website where users can create and participate in polls.">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    <title>{% block title %}  {% endblock %} - Polling App</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><div><a href="{{url_for('home')}}">home</a></div></li>
+                {% if loggedin %}
+                   <li><div><a href="{{url_for('dashboard')}}">dashboard</a></div></li>
+                   <li><div><a href="{{url_for('create_question')}}" class="logout-btn">Create a New Poll</a></div></li>
+                   <li><div><a href="{{url_for('questions')}}" class="logout-btn">View All Polls</a></div></li>
+                   <li>
+                       <div>
+                           <form class="example" action="{{url_for('search')}}" method="post" autocomplete="off">
+                               <input type="text" placeholder="Search for polls.." name="search_term" id="search_term">
+                               <button type="submit" class="submit-btn">
+                                   <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                       <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+                                   </svg>
+                               </button>
+                          </form>
+                      </div>
+                   </li>
+                   <li><div><a href="{{url_for('logout')}}" class="logout-btn">logout</a></div></li>
+                {% else %}
+                   <li><div><a href="{{url_for('login')}}">login</a></div></li>
+                   <li><div><a href="{{url_for('register')}}">register</a></div></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block body %}
+    
+        {% endblock %}
+    </main>
+    <footer>
+        <p>
+            &copy; {{ current_year }} Polling App
+        </p>
+    </footer>
+</body>
+</html>

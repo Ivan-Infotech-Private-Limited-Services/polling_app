@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} {{question.text}} {% endblock %}
+{% block body %}
+<div class="container">
+    <h1>{{question.text}}</h1>
+    <p>{{question.time_created.strftime('%Y-%m-%d %H:%M:%S')}}</p>
+    <p>{{option_text[0]}}</p>
+    <p>{{option_text[1]}}</p>
+    <p>{{option_text[2]}}</p>
+    <p>{{option_text[3]}}</p>
+    <a href="{{ url_for('votting', id=question.id) }}" class="logout-btn">Vote</a>
+    <a href="{{ url_for('results', id=question.id) }}" class="logout-btn">result</a>
+    {%if question.creator_id == session["id"] %}
+    <a href="{{ url_for('update_question', id=question.id) }}" class="logout-btn">Edit Question</a>
+    <a href="{{ url_for('delete_question', id=question.id) }}" class="logout-btn">Delete Question</a>
+    {% endif %}
+</div>
+{% endblock %}

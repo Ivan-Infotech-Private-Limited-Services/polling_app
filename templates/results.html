@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Results{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Results for: {{ question.text }}</h1>
+    <p>Total votes: {{ total_votes }}</p>
+    <table id="data" class="table-striped">
+        <thead>
+            <tr>
+                <th>Option</th>
+                <th>Votes</th>
+                <th>Percentage</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for option in options %}
+                <tr>
+                    <td>{{ option.text }}</td>
+                    <td>{{ option.vote_count }}</td>
+                    {%if total_votes != 0 %}
+                        <td>{{ (option.vote_count / total_votes) * 100 | round(2) }}%</td>
+                    {% else %}
+                        <td>0%</td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Total Votes:</td>
+                <td>{{ total_votes }}</td>
+                <td></td>
+            </tr>
+            {% if question.creator_id == session["id"] %}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><a href="{{ url_for('delete_question', id=question.id) }}" class="logout-btn">Delete Poll</a></td>
+                </tr>
+            {% endif %}
+        </tfoot>
+    </table>
+    <a href="{{ url_for('questions') }}" class="logout-btn">Back to Polls</a>
+</div>
+{% endblock %}

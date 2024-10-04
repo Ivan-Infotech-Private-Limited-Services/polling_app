@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Votting{% endblock %}
+{% block body %}
+<div class="container">
+    <h1>Votting</h1>
+    <form id="update_question-form" action="{{url_for('votting',  id=question['id'])}}" method="post" autocomplete="off">
+        <input type="hidden" name="question_id" value="{{ question.id }}">
+        <p>{{ question.text }}</p>
+        <input type="radio" name="option" value="{{ option_id[0] }}"> {{ option_text[0] }}<br>
+        <input type="radio" name="option" value="{{ option_id[1] }}"> {{ option_text[1] }}<br>
+        <input type="radio" name="option" value="{{ option_id[2] }}"> {{ option_text[2] }}<br>
+        <input type="radio" name="option" value="{{ option_id[3] }}"> {{ option_text[3] }}<br>
+        <input type="submit" value="Submit" class="register-btn">
+        <a href="{{ url_for('questions') }}" class="logout-btn">Back</a>
+
+    </form>
+</div>
+{% endblock %}

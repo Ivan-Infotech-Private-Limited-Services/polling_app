@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Create a question{% endblock %}
+{% block body %}
+<div class="container">
+    <h1>Create a question</h1>
+    <form id="create_question-form" action="{{url_for('create_question')}}" method="post" autocomplete="off">
+        <input type="text" name="question_text" placeholder="question" class="input-field" id="question_text"/>
+        <input type="text" name="option_text1" placeholder="option1" class="input-field" id="option_text1"/>
+        <input type="text" name="option_text2" placeholder="option2" class="input-field" id="option_text2"/>
+        <input type="text" name="option_text3" placeholder="option3" class="input-field" id="option_text3"/>
+        <input type="text" name="option_text4" placeholder="option4" class="input-field" id="option_text4"/>
+        <input type="submit" value="Submit" class="submit-btn"/>
+    </form>
+</div>
+{% endblock %}

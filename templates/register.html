@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block body %}
+    <div class="container">
+        <h1>Register</h1>
+        {% if error %}
+            <div class="error-message" style="color:red; font-weight:bold;"><p><strong>Error:</strong></p>{{ error }}</div>
+        {% endif %}
+        <form id="auth-form" action="{{url_for('register')}}" method="post" autocomplete="off">
+            <input 
+                type="text" 
+                name="username" 
+                placeholder="Username (alphanumeric)" 
+                class="input-field"
+                id="username" 
+                pattern="[A-Za-z0-9]+" 
+                title="Username must contain only letters and numbers"
+                required
+            />
+            <input 
+                type="password"
+                name="password" 
+                placeholder="Password (8+ chars, 1 uppercase, 1 number, 1 special char)" 
+                class="input-field"
+                id="password" 
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                title="Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character."
+                required
+            />
+            <input 
+                type="email"
+                 name="email" 
+                 placeholder="Enter Your Email ID" 
+                 class="input-field" 
+                 id="email" 
+                 required
+            />
+            <input 
+                type="submit" 
+                value="Register" 
+                class="register-btn" 
+            />
+        </form>
+        <p>Already have an account? <a href="{{url_for('login')}}">Login here</a></p>
+    </div>
+{% endblock %}

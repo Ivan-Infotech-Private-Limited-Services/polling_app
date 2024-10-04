@@ -1,0 +1,231 @@
+body {
+  background-color: wheat;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  text-align: center;
+}
+
+header {
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+}
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+header nav {
+  overflow: hidden;
+  background-color: #fff;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+header nav ul {
+  list-style-type: none;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  padding: 0 0 0 0;
+  margin: 0.5px 0;
+}
+header nav ul a {
+  width: 100%;
+  padding: 6.5px;
+  margin: 40px 0;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+}
+header nav ul a:hover {
+  background-color: #0056b3;
+}
+header nav ul li {
+  margin: 10px 0;
+}
+
+main {
+  margin-top: 10px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+}
+
+.container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 500px;
+  width: 100%;
+  margin: 50px auto;
+}
+.container .no-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+}
+.container .result-item {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.container h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+.container p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+}
+.container .input-field {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  box-sizing: border-box;
+}
+.container .input-field:focus {
+  border-color: #007bff;
+  outline: none;
+}
+.container .logout-btn {
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.container .logout-btn:hover {
+  background-color: #0056b3;
+}
+.container .register-btn {
+  background-color: #28a745;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.container .register-btn:hover {
+  background-color: #218838;
+}
+.container .login-btn {
+  background-color: #007bff;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.container .login-btn:hover {
+  background-color: #0056b3;
+}
+.container .submit-btn {
+  background-color: #007bff;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.container .submit-btn:hover {
+  background-color: #0056b3;
+}
+.container .table-striped {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+.container .table-striped th, .container .table-striped td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.container .table-striped tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+.container .table-striped th {
+  background-color: #f2f2f2;
+}
+.container .table-striped td {
+  font-size: 1rem;
+}
+.container .table-striped th, .container .table-striped td:hover {
+  background-color: #ddd;
+}
+.container .table-striped caption {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+.container .table-striped tfoot {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+.container .table-striped tfoot td {
+  padding: 10px;
+  text-align: right;
+}
+.container .table-striped tfoot th, .container .table-striped tfoot td:hover {
+  background-color: #ddd;
+}
+.container .table-striped caption, .container .table-striped tfoot {
+  text-align: left;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+footer {
+  background-color: #ffffff;
+  color: #333;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  margin-top: 20px;
+}/*# sourceMappingURL=styles.css.map */

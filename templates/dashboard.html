@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block body %}
+    <div class="container">
+        <h1>Welcome, {{username}}!</h1>
+        <p>Welcome to your dashboard. From here, you can manage your polls.</p>
+        <div class="dashboard-options">
+            <a href="{{url_for('create_question')}}" class="logout-btn">Create a New Poll</a>
+            <a href="{{url_for('questions')}}" class="logout-btn">View All Polls</a>
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+        </div>
+    </div>
+{% endblock %}
